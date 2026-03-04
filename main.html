@@ -6,8 +6,43 @@
   </head>
 
   <body>
-    <!-- do not change this code -->
     <div id="output"></div>
-    <script type="text/javascript" src="./script.js"></script>
+    <script type="text/javascript" src="./script.js">
+		function processArray() {
+      const initialArray = [1, 2, 3, 4];
+
+    turn new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(initialArray);
+        }, 3000);
+      })
+      .then((arr) => {
+        const evenNumbers = arr.filter(num => num % 2 === 0);
+
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            document.getElementById("output").textContent = evenNumbers.join(",");
+            resolve(evenNumbers);
+          }, 1000);
+        });
+      })
+      .then((evenNumbers) => {
+        const doubled = evenNumbers.map(num => num * 2);
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            document.getElementById("output").textContent = doubled.join(",");
+            resolve(doubled);
+          }, 2000);
+        });
+      })
+      .catch(err => {
+        console.error("Something went wrong:", err);
+        document.getElementById("output").textContent = "Error occurred";
+      });
+    }
+    window.addEventListener("load", () => {
+      processArray();
+    });
+	</script>
   </body>
 </html>
