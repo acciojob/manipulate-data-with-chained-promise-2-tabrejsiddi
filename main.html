@@ -6,25 +6,8 @@
   </head>
 
   <body>
+    <!-- do not change this code -->
     <div id="output"></div>
-    <script type="text/javascript" src="./script.js">
-		function processArray() {
-  const output = document.getElementById("output");
-
-  const numbers = [1, 2, 3, 4]; 
-  setTimeout(() => {
-    const evens = numbers.filter(n => n % 2 === 0);
-    output.textContent = evens.join(",");   
-   
-    setTimeout(() => {
-      const doubled = evens.map(n => n * 2);
-      output.textContent = doubled.join(",");
-    }, 2000);
-    
-  }, 1000);
-}
-window.addEventListener("DOMContentLoaded", processArray);
-
-	</script>
+    <script type="text/javascript" src="./script.js"></script>
   </body>
 </html>
